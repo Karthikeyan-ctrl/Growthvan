@@ -2,14 +2,24 @@
 
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { motion } from "framer-motion";
+import ScrambledText from "./ScrambledText";
+import Galaxy from "./Galaxy";
+
+
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-[#050505]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+      <Galaxy hueShift={280} density={1.5} starSpeed={1.0} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-[var(--primary)] font-semibold tracking-wide uppercase text-sm mb-2">Get In Touch</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-white mb-4">Let's Discuss Your Next Project</h3>
+          <ScrambledText 
+            tag="h3" 
+            className="text-3xl md:text-5xl font-bold text-white mb-4"
+          >
+            Let's Discuss Your Next Project
+          </ScrambledText>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Ready to accelerate your digital transformation? Contact our team of experts today.
           </p>

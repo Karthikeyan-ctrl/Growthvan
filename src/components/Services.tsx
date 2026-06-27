@@ -5,6 +5,10 @@ import {
   Code, Smartphone, Brain, Cloud, 
   BarChart, Shield, PenTool, Lightbulb 
 } from "lucide-react";
+import BorderGlow from "./BorderGlow";
+import ScrambledText from "./ScrambledText";
+
+
 
 const services = [
   {
@@ -55,7 +59,13 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-[var(--primary)] font-semibold tracking-wide uppercase text-sm mb-2">Our Services</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-white mb-4">Comprehensive IT Solutions</h3>
+          <ScrambledText 
+            tag="h3" 
+            className="text-3xl md:text-5xl font-bold text-white mb-4" 
+            scrambleChars=".:/\|#"
+          >
+            Comprehensive IT Solutions
+          </ScrambledText>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             We deliver end-to-end technology services designed to optimize operations, accelerate growth, and drive innovation.
           </p>
@@ -69,15 +79,23 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#111] border border-gray-800 p-8 rounded-xl hover:border-[var(--primary)]/50 hover:bg-[#151515] transition-all group"
+              className="group h-full"
             >
-              <div className="text-[var(--primary)] mb-6 group-hover:scale-110 transition-transform origin-left">
-                {service.icon}
-              </div>
-              <h4 className="text-xl font-bold text-white mb-3">{service.title}</h4>
-              <p className="text-gray-400 leading-relaxed text-sm">
-                {service.description}
-              </p>
+              <BorderGlow
+                backgroundColor="#111111"
+                borderRadius={12}
+                glowColor="290 100 50"
+                glowIntensity={0.8}
+                className="h-full p-8"
+              >
+                <div className="text-[var(--primary)] mb-6 group-hover:scale-110 transition-transform origin-left">
+                  {service.icon}
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">{service.title}</h4>
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+              </BorderGlow>
             </motion.div>
           ))}
         </div>

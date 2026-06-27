@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import ScrambledText from "./ScrambledText";
+
 
 const solutions = [
   {
@@ -28,9 +30,12 @@ export default function Solutions() {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <h2 className="text-[var(--primary)] font-semibold tracking-wide uppercase text-sm mb-2">Business Solutions</h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <ScrambledText 
+              tag="h3" 
+              className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
+            >
               Platform Solutions for the Modern Enterprise
-            </h3>
+            </ScrambledText>
             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
               We build scalable, resilient platforms that serve as the foundation for your business growth. Our solutions are designed with security, performance, and future-readiness at their core.
             </p>

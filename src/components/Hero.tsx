@@ -3,15 +3,29 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import SoftAurora from "./SoftAurora";
 
 export default function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] pt-20">
-      {/* Abstract Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--primary)] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+      {/* Soft Aurora Background */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <SoftAurora
+          speed={0.6}
+          scale={1.5}
+          brightness={1.0}
+          color1="#0a0a0a"
+          color2="#e100ff"
+          noiseFrequency={2.5}
+          noiseAmplitude={1.0}
+          bandHeight={0.5}
+          bandSpread={1.0}
+          octaveDecay={0.1}
+          layerOffset={0}
+          colorSpeed={1.0}
+          enableMouseInteraction={true}
+          mouseInfluence={0.25}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

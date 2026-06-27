@@ -2,6 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, Zap, Award, Headphones, Rocket } from "lucide-react";
+import BorderGlow from "./BorderGlow";
+import ScrambledText from "./ScrambledText";
+
+
+
 
 const reasons = [
   { icon: <Users />, title: "Experienced Team", desc: "Top-tier engineers and domain experts." },
@@ -18,7 +23,12 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-[var(--primary)] font-semibold tracking-wide uppercase text-sm mb-2">Why Choose Us</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-white">The Growthvan Advantage</h3>
+          <ScrambledText 
+            tag="h3" 
+            className="text-3xl md:text-5xl font-bold text-white mb-4"
+          >
+            The Growthvan Advantage
+          </ScrambledText>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -29,15 +39,23 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-start p-6 bg-[#111] rounded-xl border border-gray-800"
+              className="group h-full"
             >
-              <div className="flex-shrink-0 text-[var(--primary)] bg-[var(--primary)]/10 p-3 rounded-lg mr-4">
-                {reason.icon}
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-white mb-2">{reason.title}</h4>
-                <p className="text-gray-400 text-sm">{reason.desc}</p>
-              </div>
+              <BorderGlow
+                backgroundColor="#111111"
+                borderRadius={16}
+                glowColor="290 100 50"
+                glowIntensity={0.8}
+                className="p-8 h-full"
+              >
+                <div className="w-14 h-14 bg-[#1a1a1a] rounded-xl flex items-center justify-center text-[var(--primary)] mb-6 group-hover:scale-110 group-hover:bg-[var(--primary)] group-hover:text-white transition-all duration-300">
+                  {reason.icon}
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">{reason.title}</h4>
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  {reason.desc}
+                </p>
+              </BorderGlow>
             </motion.div>
           ))}
         </div>
