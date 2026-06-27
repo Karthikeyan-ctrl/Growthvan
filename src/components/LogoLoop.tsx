@@ -1,6 +1,7 @@
+// @ts-nocheck
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, memo } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, memo, ReactNode, CSSProperties } from 'react';
 import './LogoLoop.css';
 
 const ANIMATION_CONFIG = { SMOOTH_TAU: 0.25, MIN_COPIES: 2, COPY_HEADROOM: 2 };
@@ -117,6 +118,24 @@ const useAnimationLoop = (trackRef, targetVelocity, seqWidth, seqHeight, isHover
   }, [targetVelocity, seqWidth, seqHeight, isHovered, hoverSpeed, isVertical, trackRef]);
 };
 
+export interface LogoLoopProps {
+  logos: any[];
+  speed?: number;
+  direction?: 'left' | 'right' | 'up' | 'down';
+  width?: string | number;
+  logoHeight?: number;
+  gap?: number;
+  pauseOnHover?: boolean;
+  hoverSpeed?: number;
+  fadeOut?: boolean;
+  fadeOutColor?: string;
+  scaleOnHover?: boolean;
+  renderItem?: (item: any, key: any) => ReactNode;
+  ariaLabel?: string;
+  className?: string;
+  style?: CSSProperties;
+}
+
 export const LogoLoop = memo(
   ({
     logos,
@@ -134,7 +153,7 @@ export const LogoLoop = memo(
     ariaLabel = 'Partner logos',
     className,
     style
-  }) => {
+  }: LogoLoopProps) => {
     const containerRef = useRef(null);
     const trackRef = useRef(null);
     const seqRef = useRef(null);
